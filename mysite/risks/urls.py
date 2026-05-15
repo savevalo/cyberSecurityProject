@@ -1,7 +1,11 @@
 from django.urls import path
 
-from . import views
+from .views import index, transferView, accountView, registerView
 
 urlpatterns = [
-    path('', views.index, name='index'),
+    path('', index, name='home'),
+    path('transfer/', transferView, name='transfer'),
+    path('account/<int:id>/', accountView, name='account'),
+    path('register/', registerView, name='register'),
+    
 ]

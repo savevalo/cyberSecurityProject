@@ -23,14 +23,49 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-&w9539h4*&(bkc#&sk%yv02#_(z9@nqiisxd1-jmue*3%udz_#'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
 
+DEBUG = True
+# DEBUG = False
+
+# A09 Security Logging and Monitoring Failures
+# no logging
+# the vulnerability is just not having this
+# LOGGING = {
+#     "version": 1,
+#     "disable_existing_loggers": False,
+#     'formatters': {
+#         'verbose': {
+#             'format': '{asctime} {levelname} {message}',
+#             'style': '{',
+#         },
+#     },
+#     "handlers": {
+#         "file": {
+#             "level": "WARNING",
+#             "class": "logging.FileHandler",
+#             "filename": "security.log",
+#             "formatter": "verbose",
+#         },
+#     },
+#     "loggers": {
+#         "security": {
+#             "handlers": ["file"],
+#             "level": "WARNING",
+#             "propagate": True,
+#         },
+#     },
+# }
 ALLOWED_HOSTS = []
+# ALLOWED_HOSTS = [
+#     'localhost',
+#     '127.0.0.1'
+# ]
 
 
 # Application definition
 
 INSTALLED_APPS = [
+    'risks',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -67,7 +102,8 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'mysite.wsgi.application'
-
+LOGIN_URL = '/login/'
+LOGIN_REDIRECT_URL = '/'
 
 # Database
 # https://docs.djangoproject.com/en/6.0/ref/settings/#databases
@@ -79,7 +115,7 @@ DATABASES = {
     }
 }
 
-
+# A07 Identification and Authentication Failures
 # Password validation
 # https://docs.djangoproject.com/en/6.0/ref/settings/#auth-password-validators
 
