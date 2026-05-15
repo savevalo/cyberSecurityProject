@@ -25,7 +25,13 @@ SECRET_KEY = 'django-insecure-&w9539h4*&(bkc#&sk%yv02#_(z9@nqiisxd1-jmue*3%udz_#
 # SECURITY WARNING: don't run with debug turned on in production!
 
 DEBUG = True
+ALLOWED_HOSTS = []
 # DEBUG = False
+# ALLOWED_HOSTS = [
+#     'localhost',
+#     '127.0.0.1'
+# ]
+
 
 # A09 Security Logging and Monitoring Failures
 # no logging
@@ -55,11 +61,7 @@ DEBUG = True
 #         },
 #     },
 # }
-ALLOWED_HOSTS = []
-# ALLOWED_HOSTS = [
-#     'localhost',
-#     '127.0.0.1'
-# ]
+
 
 
 # Application definition
@@ -115,25 +117,20 @@ DATABASES = {
     }
 }
 
-# A07 Identification and Authentication Failures
-# Password validation
-# https://docs.djangoproject.com/en/6.0/ref/settings/#auth-password-validators
-
-AUTH_PASSWORD_VALIDATORS = [
-    {
-        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
-    },
-]
-
+# AUTH_PASSWORD_VALIDATORS = [
+#     {
+#         'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
+#     },
+#     {
+#         'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
+#     },
+#     {
+#         'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
+#     },
+#     {
+#         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
+#     },
+# ]
 
 # Internationalization
 # https://docs.djangoproject.com/en/6.0/topics/i18n/
