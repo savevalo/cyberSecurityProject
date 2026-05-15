@@ -25,7 +25,7 @@
         <h2>Transfer money</h2>
 
         <form id='transfer' action='transfer/' method="POST">
-            <!-- {% csrf_token %} -->
+            {% csrf_token %}
             <span>To:</span><br/>
             <select name="to">
 			{% for account in accounts %}
