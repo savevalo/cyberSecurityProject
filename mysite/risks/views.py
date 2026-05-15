@@ -27,7 +27,7 @@ def registerView(request):
     return render(request, 'pages/register.html', {'form': form})
 
 @login_required
-# @csrf_exempt
+@csrf_exempt
 def transferView(request):
     if request.method == 'POST':
         to = User.objects.get(username=request.POST.get('to'))
