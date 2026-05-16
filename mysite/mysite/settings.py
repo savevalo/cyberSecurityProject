@@ -33,9 +33,6 @@ ALLOWED_HOSTS = []
 # ]
 
 
-# A09 Security Logging and Monitoring Failures
-# no logging
-# the vulnerability is just not having this
 # LOGGING = {
 #     "version": 1,
 #     "disable_existing_loggers": False,
