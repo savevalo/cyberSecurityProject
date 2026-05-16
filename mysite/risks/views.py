@@ -43,7 +43,6 @@ def transferView(request):
             to.account.balance += amount
             request.user.account.save()
             to.account.save()
-            # A09
             # security_logger.warning(f"Transfer: {request.user.username} sent {amount} to {to.username}")
 	
     return redirect('/')
