@@ -10,10 +10,12 @@ from django.dispatch import receiver
 import logging
 # Create your views here.
 
-# security_logger = logging.getLogger('security')
-# @receiver(user_login_failed)
-# def on_login_failed(credentials, **kwargs):
-#     security_logger.warning(f"Failed login attempt for username: {credentials.get('username')}")
+security_logger = logging.getLogger('security')
+@receiver(user_login_failed)
+def on_login_failed(credentials, request, **kwargs):
+    ip = request.META.get("REMOTE_ADDR")
+    username = credentials.get('username')
+    security_logger.warning(f"Failed login attempt for username: {username} from ip address: {ip}")
 
 def registerView(request):
     if request.method == 'POST':
@@ -43,7 +45,7 @@ def transferView(request):
             to.account.balance += amount
             request.user.account.save()
             to.account.save()
-            # security_logger.warning(f"Transfer: {request.user.username} sent {amount} to {to.username}")
+            security_logger.warning(f"Transfer: {request.user.username} sent {amount} to {to.username}")
 	
     return redirect('/')
 
