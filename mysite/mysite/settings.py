@@ -33,31 +33,31 @@ ALLOWED_HOSTS = []
 # ]
 
 
-# LOGGING = {
-#     "version": 1,
-#     "disable_existing_loggers": False,
-#     'formatters': {
-#         'verbose': {
-#             'format': '{asctime} {levelname} {message}',
-#             'style': '{',
-#         },
-#     },
-#     "handlers": {
-#         "file": {
-#             "level": "WARNING",
-#             "class": "logging.FileHandler",
-#             "filename": "security.log",
-#             "formatter": "verbose",
-#         },
-#     },
-#     "loggers": {
-#         "security": {
-#             "handlers": ["file"],
-#             "level": "WARNING",
-#             "propagate": True,
-#         },
-#     },
-# }
+LOGGING = {
+    "version": 1,
+    "disable_existing_loggers": False,
+    'formatters': {
+        'verbose': {
+            'format': '{asctime} {levelname} {message}',
+            'style': '{',
+        },
+    },
+    "handlers": {
+        "file": {
+            "level": "WARNING",
+            "class": "logging.FileHandler",
+            "filename": "security.log",
+            "formatter": "verbose",
+        },
+    },
+    "loggers": {
+        "security": {
+            "handlers": ["file"],
+            "level": "WARNING",
+            "propagate": True,
+        },
+    },
+}
 
 
 
