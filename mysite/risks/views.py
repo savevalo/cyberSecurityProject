@@ -1,5 +1,5 @@
 from django.contrib.auth.decorators import login_required
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.views.decorators.csrf import csrf_exempt
 from django.contrib.auth.models import User
 from django.db import transaction
@@ -10,12 +10,12 @@ from django.dispatch import receiver
 import logging
 # Create your views here.
 
-security_logger = logging.getLogger('security')
-@receiver(user_login_failed)
-def on_login_failed(credentials, request, **kwargs):
-    ip = request.META.get("REMOTE_ADDR")
-    username = credentials.get('username')
-    security_logger.warning(f"Failed login attempt for username: {username} from ip address: {ip}")
+# security_logger = logging.getLogger('security')
+# @receiver(user_login_failed)
+# def on_login_failed(credentials, request, **kwargs):
+#     ip = request.META.get("REMOTE_ADDR")
+#     username = credentials.get('username')
+#     security_logger.warning(f"Failed login attempt for username: {username} from ip address: {ip}")
 
 def registerView(request):
     if request.method == 'POST':
@@ -45,15 +45,15 @@ def transferView(request):
             to.account.balance += amount
             request.user.account.save()
             to.account.save()
-            security_logger.warning(f"Transfer: {request.user.username} sent {amount} to {to.username}")
+            # security_logger.warning(f"Transfer: {request.user.username} sent {amount} to {to.username}")
 	
     return redirect('/')
 
 @login_required
 def accountView(request, id):
+    # account = get_object_or_404(Account, id=id, user=request.user)
     account = Account.objects.get(id=id)
-    # if account.user != request.user:
-        # return render(request, "pages/403.html")
+
     return render(request, 'pages/account.html', {'account': account})
 
 @login_required
